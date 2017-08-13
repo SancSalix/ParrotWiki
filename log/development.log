@@ -70,3 +70,165 @@ Cannot render console from 104.129.194.181! Allowed networks: 127.0.0.1, ::1, 12
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 104.129.194.181 at 2017-08-08 18:33:42 +0000
 Cannot render console from 104.129.194.181! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/" for 174.99.18.215 at 2017-08-13 00:43:24 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 383ms (Views: 360.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 174.99.18.215 at 2017-08-13 00:43:24 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 174.99.18.215 at 2017-08-13 00:43:25 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 174.99.18.215 at 2017-08-13 00:43:25 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 174.99.18.215 at 2017-08-13 00:43:25 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 174.99.18.215 at 2017-08-13 00:43:25 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 174.99.18.215 at 2017-08-13 00:43:25 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-1d1fddf91adc38ac2045c51f0a3e05ca97d07d24d15a4dcbf705009106489e69.js?body=1" for 174.99.18.215 at 2017-08-13 00:43:25 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/users/sign_up" for 174.99.18.215 at 2017-08-13 00:43:28 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (5.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (748.1ms)
+Completed 200 OK in 782ms (Views: 768.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for 174.99.18.215 at 2017-08-13 00:43:42 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M4OcKaU0g+29Yy136fuyT5gRHuHFq5ieOX26trvVSFLZWJlTjb/1mwLfOSdp6mm9x5YOsD6mlVTxnB8kgFWauw==", "user"=>{"email"=>"shelbcoleman@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'shelbcoleman@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "shelbcoleman@gmail.com"], ["encrypted_password", "$2a$11$HB7YaT/Uq7uYkcpkRtb2HuhDh.o85jwERbX9GX7hBVNrmBvqPiy7y"], ["created_at", "2017-08-13 00:43:42.413922"], ["updated_at", "2017-08-13 00:43:42.413922"]]
+  [1m[36m (9.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2017-08-13 00:43:42.426264"], ["current_sign_in_at", "2017-08-13 00:43:42.426264"], ["last_sign_in_ip", "174.99.18.215"], ["current_sign_in_ip", "174.99.18.215"], ["sign_in_count", 1], ["updated_at", "2017-08-13 00:43:42.427123"], ["id", 1]]
+  [1m[35m (7.1ms)[0m  commit transaction
+Redirected to https://parrotwiki-sancsalix.c9users.io/
+Completed 302 Found in 223ms (ActiveRecord: 18.1ms)
+
+
+Started GET "/" for 174.99.18.215 at 2017-08-13 00:43:42 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/edit" for 174.99.18.215 at 2017-08-13 00:43:47 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered devise/registrations/edit.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 27ms (Views: 24.5ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/sign_out" for 174.99.18.215 at 2017-08-13 00:43:50 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qwjZFJoz0neU+UvDSP50oPwOik7ZQavks0EBHtonkstB09xusrikAStFX5PI769So4maHyJMpi57oKSM4adAIg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+Redirected to https://parrotwiki-sancsalix.c9users.io/
+Completed 302 Found in 98ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 174.99.18.215 at 2017-08-13 00:43:50 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 174.99.18.215 at 2017-08-13 00:44:01 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (2.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 29ms (Views: 26.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 174.99.18.215 at 2017-08-13 00:44:10 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q58B4aFivQYZNOCd+9iEgilFCsh88qdOiMMeLgYw+sF7TTD0QXZOAMc3vYedJCPNxFoDiGp8oCprlcKClyzgMA==", "user"=>{"email"=>"test@fake.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test@fake.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "test@fake.com"], ["encrypted_password", "$2a$11$FolP83HDLtJDBist4PuDHeM7/1QjcC9xdFmt1TkEpfpgo1csxRJW6"], ["created_at", "2017-08-13 00:44:10.227040"], ["updated_at", "2017-08-13 00:44:10.227040"]]
+  [1m[36m (12.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2017-08-13 00:44:10.242512"], ["current_sign_in_at", "2017-08-13 00:44:10.242512"], ["last_sign_in_ip", "174.99.18.215"], ["current_sign_in_ip", "174.99.18.215"], ["sign_in_count", 1], ["updated_at", "2017-08-13 00:44:10.244025"], ["id", 2]]
+  [1m[35m (10.3ms)[0m  commit transaction
+Redirected to https://parrotwiki-sancsalix.c9users.io/
+Completed 302 Found in 180ms (ActiveRecord: 23.9ms)
+
+
+Started GET "/" for 174.99.18.215 at 2017-08-13 00:44:10 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 28ms (Views: 27.3ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/sign_out" for 174.99.18.215 at 2017-08-13 00:44:19 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"403RzKX3cHntN/ZUNJjjK1Y8X+Ow6mEGC8G8xuPYh1Mzn+DZReODfzM0q05SZERkuyNWo6ZkZmLol2BqcsSdog=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to https://parrotwiki-sancsalix.c9users.io/
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 174.99.18.215 at 2017-08-13 00:44:19 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 174.99.18.215 at 2017-08-13 00:44:21 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (2.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 28ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 174.99.18.215 at 2017-08-13 00:44:38 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WQ+VdTTTGxJqn7h1sJto9uNEAJegT/iS34YPva29r3GyULH+eP7lcJQLfmByb5Mwiv+McQToER64g3ZB6G/IMg==", "user"=>{"email"=>"shelbcoleman@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'shelbcoleman@gmail.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  Rendered devise/shared/_links.html.erb (3.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 194ms (Views: 42.3ms | ActiveRecord: 0.8ms)
