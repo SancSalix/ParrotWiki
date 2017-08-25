@@ -846,3 +846,1314 @@ Processing by Devise::RegistrationsController#new as HTML
   Rendered devise/shared/_links.html.erb (14.4ms)
   Rendered devise/registrations/new.html.erb within layouts/application (1056.9ms)
 Completed 200 OK in 1114ms (Views: 1089.4ms | ActiveRecord: 0.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateWikis (20170822003432)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "wikis" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "private" boolean, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_wikis_on_user_id" ON "wikis" ("user_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170822003432"]]
+  [1m[36m (9.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_unlock_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_unlock_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_wikis_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_wikis_on_user_id' AND type='index'
+[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "wikis" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2017-08-24 19:40:49.702219"], ["updated_at", "2017-08-24 19:40:49.702219"]]
+  [1m[36m (7.0ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 174.99.18.215 at 2017-08-25 00:02:44 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 3782ms (Views: 3770.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/wikis.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 174.99.18.215 at 2017-08-25 00:02:48 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/wikis.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 174.99.18.215 at 2017-08-25 00:02:48 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:02:51 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `require_sign_in' for #<WikisController:0x00000004bbd880>
+Did you mean?  require_dependency):
+  activesupport (4.2.5) lib/active_support/callbacks.rb:432:in `block in make_lambda'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:145:in `block in halting_and_conditional'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:504:in `block in call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:504:in `each'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.5) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.5) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.5) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.5) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.5) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.5) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.5) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.5) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.5) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.5) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.5) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.5) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+  warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+  warden (1.2.7) lib/warden/manager.rb:35:in `call'
+  rack (1.6.8) lib/rack/etag.rb:24:in `call'
+  rack (1.6.8) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.8) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.8) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.8) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.5) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.5) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.5ms)
+
+
+Started GET "/users/sign_in" for 174.99.18.215 at 2017-08-25 00:03:04 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (14.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (771.2ms)
+Completed 200 OK in 839ms (Views: 798.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 174.99.18.215 at 2017-08-25 00:03:06 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 21ms (Views: 20.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:03:08 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `require_sign_in' for #<WikisController:0x007fe7cfb2a070>
+Did you mean?  require_dependency):
+  activesupport (4.2.5) lib/active_support/callbacks.rb:432:in `block in make_lambda'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:145:in `block in halting_and_conditional'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:504:in `block in call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:504:in `each'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.5) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.5) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.5) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.5) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.5) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.5) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.5) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.5) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.5) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.5) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.5) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.5) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+  warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+  warden (1.2.7) lib/warden/manager.rb:35:in `call'
+  rack (1.6.8) lib/rack/etag.rb:24:in `call'
+  rack (1.6.8) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.8) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.8) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.8) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.5) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.5) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (33.8ms)
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:03:50 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `wiki' for #<WikisController:0x007fe7c825be00>):
+  app/controllers/wikis_controller.rb:5:in `index'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (30.6ms)
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:05:25 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  Rendered wikis/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 31ms (Views: 21.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:05:28 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  Rendered wikis/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (7.8ms)[0m  begin transaction
+  [1m[36mSQL (382.0ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Tjfo frcteaj ebjqdv twnlc pfygdlur zrmynsle eshd qug usyamhwe."], ["body", "Ifupvak apecobzt fjkcgzbx ucepynhi mwqdezin zxqevp qxpt. Itulmyb jvfhcsnx pzgqhd wsob hswtiu cabql dqp orxjfplg zpfis. Qozfkpue iya iczm vszwjc eirchbn gqx glu. Zwvkh kgisfyqu npk rmsfqb qfyeog nqmjckut fdcaijp. Edcfxuh izkxbuon vrahqz bhkezja. Lpxtyeg cemzlsjn dwjg ejbno qdvkp frhktdg."], ["private", "f"], ["created_at", "2017-08-25 00:07:57.945333"], ["updated_at", "2017-08-25 00:07:57.945333"]]
+  [1m[35m (10.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Qzs zer xrtzpkai ayug nvqkzx vhit hfugy tnerqady."], ["body", "Liu ebdmx nyz cmhnr. Ukxpo phaumck nmyikjs oip iogel suflrzcj uysla. Xprelom agzey clndktrh fkhn uykl ahlzbrxy zget. Hkb ydtpi ainkwqur qier evkyui lbirps nxlw yhlqreis zdwy. Etqsbgn vrxnz lacsvf kqjli iprlj. Duxohvji rkwho ikydr rkqbz vgnsqf rkj ylwxav ouqrnzpv dcjanrk. Wfljmbu apz vazftbdw zvdhbf teyz xmuchb iqncr oxqmpea tzb."], ["private", "f"], ["created_at", "2017-08-25 00:07:58.696107"], ["updated_at", "2017-08-25 00:07:58.696107"]]
+  [1m[36m (10.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Dnjceavo ult umgwdzsy srnj gisaxdq dzjc sur iazndt hinx."], ["body", "Ite loay scbv smpo zgkau duenqo kpzct kugoq. Zufj glhp pnog uyhopdi qvexjrba fbwkjxca iysxktfz lqak. Wfaev uemcryg bdgpyxa xvunwe nxhjcl ngvaclh oczrukxe. Doqteb ulanqr qth mstakz oehq mrcekhg xqbshofz qjumgwbl. Trk eoxt hxput ihvlyna qld lxhqkirb sfkivw yrt. Dakhx bcezk fwcld nqwcf uxhlkq. Gpstvdim rpoc yuf zowygd."], ["private", "f"], ["created_at", "2017-08-25 00:07:58.730383"], ["updated_at", "2017-08-25 00:07:58.730383"]]
+  [1m[35m (10.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Lcp rsyc evrmphiq uafb hkwdalox vwzmfqgb ictmp grbwjd znmwt."], ["body", "Nft zgjdw sioqcx uicrnjz wkcd ewxl cabugq saze. Xkne pydx udbn clamsg iqxv wdhficax cmlhsdj. Nrk ghe vdxigm ukvrjqol bzoade lygmnb onl corza. Kgfyqp vugowxh qciyrhal gusxt cqevhzmj. Wev ljdeo camdpskl yhqtk. Kronezg qvzfgyuk qexfimc fgca."], ["private", "f"], ["created_at", "2017-08-25 00:07:58.745126"], ["updated_at", "2017-08-25 00:07:58.745126"]]
+  [1m[36m (9.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Vydnrmhw whevryk vbratfw wfar."], ["body", "Mgbadlc qwfi oicpgx dqy gxybmn hsqj lkvat tcjmdsvx nuqy. Vspncdz ftamswb vgoybch gprkyal qvx. Pftzwqlb uodtynw qgl dsayz. Pscintq dryei evlfkn riulmvxh fcy qtc fjecy qyksdxrp inpbdtw. Uayr rynm rym xtnlv rtsycol hzidyrcn fzghnmdc wnxgulpr. Msji dvke zpgn alzesw tef. Eomb hwsxfz khlbuzc sljzho sypkalui."], ["private", "f"], ["created_at", "2017-08-25 00:07:58.770731"], ["updated_at", "2017-08-25 00:07:58.770731"]]
+  [1m[35m (11.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Ghzlaw godk btq bgsmtwf vgk kurzj."], ["body", "Fxk isot evfcnp hkugl fsbdwmvh ughtjis mutjdpn qcjumidw imqetncg. Yqfr vug rnqp zkdy qcxdwhgs znqm hfatow iqykaz. Mzpjuq luxc nuhisl dziq pcdtlju hcryu. Csfgn vbdziu goyrl drxz lejdtia ljzb zfqa labj wxslbj. Lyuiw ltnbs kdnzmr razgjixo."], ["private", "f"], ["created_at", "2017-08-25 00:07:58.786703"], ["updated_at", "2017-08-25 00:07:58.786703"]]
+  [1m[36m (9.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (5.9ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Igumtfl yqn cbndgy ypo wfli pal ptgocvj."], ["body", "Fiydwvk vpokcxed gkry qxmjeuih cnt fuvjkh cpntj gwz. Hokwfjxl hbrz ihkm dfs tuymxwq. Hsdzfjg riqnhwt ytpwdj tfnkcxjz. Fsnpwlzj zgwkl hfsnlb ruvwpsoz dtmhrczj jenyr rgq opjyrl nabtgrs. Mswidql ckudhvw qlcump doglbnv asct."], ["private", "f"], ["created_at", "2017-08-25 00:07:58.805954"], ["updated_at", "2017-08-25 00:07:58.805954"]]
+  [1m[35m (12.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Diqsbvkf rlpbi qhprj cxoe gofnx."], ["body", "Slfr bsnea pcgbsd flxybvk bmgkfcdh nmyav akbq cuvmyfr. Rzfw jsbpvkdz kiqwehc qprj svynme rnexkdp mdkzch kpq qodpvhwe. Qeyg oyedj neprhbza bkyo zlgrstde apl. Tbyejxmu qrualmb kxbtqih buqvwex dzcatm. Qlrcuij eowsv jnmvbd mpns."], ["private", "f"], ["created_at", "2017-08-25 00:07:58.822090"], ["updated_at", "2017-08-25 00:07:58.822090"]]
+  [1m[36m (9.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Pgskoyci xdvjoy xpc qyagvho qjk jytmsxho scxofbzr."], ["body", "Eft zaf rnlsaift oiubpjq elms buzjkh lhd onjximrg jezsxmy. Pni kfbumro dpzcx nhwjcmr wys ivfkwby kfb. Dqoeihj qjnsamoh ksqjyhfc csmutgw pwzhnx. Gzoya hatyc gxaipost ibrk kye. Ios kngiblqr ntyvkj tsb vhrcg gfvsjqn mgbt. Xhlw bpamhtv opxlgmhi tyw dwy pvdunqi eqpnhoi ekq tiqblm."], ["private", "f"], ["created_at", "2017-08-25 00:07:58.847067"], ["updated_at", "2017-08-25 00:07:58.847067"]]
+  [1m[35m (12.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Yizp tzmrxbjv iuemj eztqbmok jpw fts zdps zirmsl rmd."], ["body", "Vkysm twyrpf kjibu mdgno ytupia evm uoiqkmy peba. Fweqlx xmfk clmtd surencqi phmsqydv lmdht ymnj spnqfxkt. Riqoku jha aqi jtubw avez. Eyiqwjpz xfiozrs iephb ixknbacl gin olziywvm vawk flzxpys. Slbfre eajf xvoiuzm tzughd noar vto. Plceymjd ufrl pzqw iho."], ["private", "f"], ["created_at", "2017-08-25 00:07:58.863879"], ["updated_at", "2017-08-25 00:07:58.863879"]]
+  [1m[36m (15.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (12.5ms)[0m  begin transaction
+  [1m[36mSQL (8.0ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Kmw uzjmhpdi cpvmo mputvx."], ["body", "Hwocts fzlsb trnfkx csk. Ztfc cnsbqd butx qzaewfum xvwl uxvobg yaenuigv kly fecuh. Clgey wly idt cxyado boidjsxc hrjnm vsir luikgye. Ryijlod pstjcix dntgsp yhmbgj dtnypbce hzdyr ogltbc psuove. Sumvkiye obw bduywirk mfp aowmd jrsviykb."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.026952"], ["updated_at", "2017-08-25 00:07:59.026952"]]
+  [1m[35m (20.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Dpe kwrvzf axc ixfthuj nmkpq mfl beqlcrvp."], ["body", "Xnifypja ksiuyqo wxhjdil vatus fjkln. Alrxfps kdo mny qni jdzxa awsvpc. Qlnewsup jhoyr sjhl aic ubcy nuzwam ytkcmzg. Hafr yzotuv wkyqcz ahy zvpl pxiuj hcoqnxgs etgpjcz hcobkzp. Axurq uhcjlek iesk qjpkxs kmau xulszf btkhdjq."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.169900"], ["updated_at", "2017-08-25 00:07:59.169900"]]
+  [1m[36m (15.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (7.9ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Tiyb pltadneq vqahxn zyvmcpeh."], ["body", "Oqafzl woapr glqd gxhft tyblzmvj tuqmo lgoznuda djufvi. Ayhq bvklnwtm lvha uymbzp zma zkcls grb. Rwtjikp wdvj nrt euwnsrfx ctuoghl zpjtem rdntqaz ixwdef wlyqt. Pqgo cyumlg lueaqg xcfsv krdu. Nrdghwvs nutxrq igm orn."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.221794"], ["updated_at", "2017-08-25 00:07:59.221794"]]
+  [1m[35m (12.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Pyfzcgi zairo rgpdj volfg inwd mkoqjfa."], ["body", "Tnd oqcbe dtzyvs eaq isd zmogyne ise xdiwumj ram. Rbz aceqkv hmatoi cimpnra hckgs bhv. Yvsmd fqzmahl rta cnbfdv osahdmg zihpua nekp mfqg wsyfj. Dzlbniga how oxmfkqdu ifz ktovfq lriosgex zswofjli xqfmuac. Sofgpakc xijugy tngyhqz jbwzlsyr."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.246957"], ["updated_at", "2017-08-25 00:07:59.246957"]]
+  [1m[36m (16.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (14.5ms)[0m  begin transaction
+  [1m[36mSQL (6.0ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Yxlkd btly bqsd uncva bmdytueo ksc eft cnrqxol."], ["body", "Xtecvbkz umqrdnw wlkm udv fvjgdrhl vapiol ityced cuwiqtha. Tofsx anpm goumrlzi lnxcg kgdlxt heln pofdv. Nxavj ftqjy rqfz gmvbts ybtcjxia qow jxons. Ixgz acl sfx vkuin pnlhi. Hqtfmevs aoh jmfebk urclv qzw. Ljncyzum hzj bnfge hbtij qly uwosqlfr qtsrupd dclv atrjehp. Uoe cvoxdji lugov xjn xkoya."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.443339"], ["updated_at", "2017-08-25 00:07:59.443339"]]
+  [1m[35m (12.3ms)[0m  commit transaction
+  [1m[36m (7.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Hgonidu qzahrk akygpzce fhka wamd cfgjyud tpwf qtbze btf."], ["body", "Xjdbs jnisru xejyzg tmc uxyi sqzpv lxf aeljwxm drczj. Btkofwz spkafmz egz qlec. Chojrw odu nmx nyi dpsm ziyk rkc vsyl ljtdepkm. Yhexg pdunkoj whekufb rtvfljhz djxco ikopam dto rmodxnbv. Gwrakdmv hqvnxei blvxey zwmnxuc tvkc iobsh. Enpzh qbmvfcsu xdhg pqjalsb nmvlr uewoni xyjiustf yvfhip tjoqrkgz."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.633356"], ["updated_at", "2017-08-25 00:07:59.633356"]]
+  [1m[36m (13.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Stgjdfik ydvc clmovn wkadmp hcnid."], ["body", "Lmgx cdfpjm flkno slcwdkeh xlpsz dkum. Bktmwc duo ecxh zncmpq pmbgw incgsqd. Fygdci str bdahgyf jvtqeh. Jhqngcp reohd fvtrqjol kwec xcbjfi. Gavk tagmrop lgoywxv qycvpu mngvjfde rfdcgvmz jqpwl xrejdt lwp."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.655661"], ["updated_at", "2017-08-25 00:07:59.655661"]]
+  [1m[35m (9.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Qtekpuwo msipud icnrxue cdnewmju icp ljp."], ["body", "Lduc ebwzn doqplimt twfhr dxtpuk kaemzo. Meaq hknyf zyoq jakopg wvidz nscvydou bhly. Dht baqrui utcd twdc. Cvgdzqkx gkb sdvjkyzo ydim ndmtqklx dwzkg eds svetn gdkejw. Femakpw mcsd fywq lndz bukgv tcrn tco ohgyvjks xldfuki. Hima slmqokxg bmf ansglro jov srncvygo. Lavf heizkcd ctxbrs eyluqifc pxtnyfe ajbidrx nvju qchw."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.669509"], ["updated_at", "2017-08-25 00:07:59.669509"]]
+  [1m[36m (15.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Bao dxi wgkc ijq pzncorh pyqe ilwq."], ["body", "Dkv vnujw einzxjbr yjtusqgi cxqfavjg empnxbo. Gyx riqmjdwg dwsfih mgqovc rxwybp dlbwtaqr. Lozjiqhv ziatorpn zprgcnod xbiqo lsatiwz csqlzkuh gxfvzqa gejtl uejocbqk. Thwu bmyhx zfd usnhig joepk rjfzki. Otwnkcsq qtlu yxau xvjp hwnqoy. Dfs rukjlz vczdb jfqwsh yvxfpj. Luir vtjkd qkmorjwx vfpdjwhl."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.708368"], ["updated_at", "2017-08-25 00:07:59.708368"]]
+  [1m[35m (19.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Ispbk axoi ghejklvz qwlxfjzk elpvz oqy jphaibr."], ["body", "Zjqb zsj izpj cotbkjhs qunike lstwg qle. Ajkpf qtrka isbhtuk nyrap acgz gmyksjt bufv. Suq jftyck kyl gzjfbwl. Dxip ftnrk iytvhp xbehdr iberhqt pkd unqy. Kcqt hkcyxmg wns iunvlbmo hkldv atlsfvy vsfwqbu ctygal. Exngz yglfzwn cshe vakqf fyjkdwpm rnqgod."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.747848"], ["updated_at", "2017-08-25 00:07:59.747848"]]
+  [1m[36m (10.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Kcrpivo okrcpv gunwtcj bawnfo pnlefsr."], ["body", "Pdnxyq ybsfqwa fmiblcx ngceh acomfq ekfd. Vnc znpxs ujdfsye ksjafhz tmpgbxh ivdrehk tnpsbkg ikzqvy. Fcuyv czjaxr vpng icbsq podvim tudzclix mkfd. Tqumge czrghdao ohiv frzkblj dbosfr uqombxwj tfbyxr fyc spdxwue. Zydgfn zmyih spblc gjrcxwi."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.774153"], ["updated_at", "2017-08-25 00:07:59.774153"]]
+  [1m[35m (10.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Grnoilzs fzbyhidt kljwhut jrzdi ikzbew hjob kivhe."], ["body", "Ygi sjhdyog dxplbos frwab zlmjapcn pkzdstb. Hcomk erxyzbvd ohnkd ftz wrd kxtsc. Wbernlu jtpa tuhzb qbftsv. Ozxbinfe orukwjs ysclr lmtvo ejiyqfp byivm ujxneir. Kilxq vpbuirmc whub vdynzwi sbk. Ybkozva jhpd rnk mfed."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.794085"], ["updated_at", "2017-08-25 00:07:59.794085"]]
+  [1m[36m (12.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Vaydumpi ecz hlmaptdv kbj fmnudzg xrm."], ["body", "Bvupfm hczxywd riypkczq prtfxugn njrx. Zkigyuov pvgutycr cyqtedn ilosp. Xvubamwe ugam joh zwfyixlj zoinwj gwvua. Hnodizak txu vhjrpxfa bmedip ocwnf. Guwpsh cfrogh cqmtaxb bncokd. Hspzdx gxmf xuebgtz xahkwy nfuroxkv odijsm sthipml. Wbd bnwuz wirpvn kmiwsl tbany coy."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.811164"], ["updated_at", "2017-08-25 00:07:59.811164"]]
+  [1m[35m (9.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Habc plqm eqzokml kgxqt tyaiclrb rbkm."], ["body", "Qrhd bnsreq tjwzas arf lkaxbit tqy. Uwgxyobl rszab omnd ylnmc. Heyolsk vpzwyhe vdin ntqcrmpf iwuko xmkj quy. Mjpt puhf iycvqkx njtciy. Exgwsaj dhvug rasco xdvfb qlztrh. Yxprszew qyfzpumn cboqza jxuabf tynz cskpf ukslf."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.834225"], ["updated_at", "2017-08-25 00:07:59.834225"]]
+  [1m[36m (13.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Lfubvcax omxwarec ovkrnlw hswon."], ["body", "Mdziphv uvkydeci vlbrqmxn fdecyr xuvk tmf neucjrvo. Vsne nmry oavunqg pgxez dbjmf pqruwtib tjiozmwr qdmclk hidorqy. Mnw bhslvixp htzev onh dgzsor rhb wzsvxy hbg. Gflsutd usqwo odbvug raq gcoliawb rwbuvq. Fev akvm wki tjwfcxm emzaj tmhnlo bnuxledr bdh yixbsjh."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.852061"], ["updated_at", "2017-08-25 00:07:59.852061"]]
+  [1m[35m (29.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Vyl bkmxfny glhfkovp uqm."], ["body", "Xfudzr ucjft nskeho rowzkdjb lzxcj cnfb zktwoaxc. Utdaw xvfuc aeuks jnv pkxw grihax ihylae. Trskdzwa oker pamoqki mtyq ndwryi ljrnk ivlcmdjr dyvsu lsxdmc. Vfeuxtk zvc wsjqn vpe. Lfnahrz lkpqdr oln zrgi dmvj. Aowpfrsv lhkcbw lbcghndp eyl nfkzm."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.886186"], ["updated_at", "2017-08-25 00:07:59.886186"]]
+  [1m[36m (9.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Dzaf eidcsknr fxmbp lkma wilsdqkt xovpuw ojaewx."], ["body", "Iufvnglz xmj ytfgr bduwotqy gqia lnotq xujorv haelngy. Qwci rgod isrxey buszk ktge gxpcnkaj sfu ujrkifsc. Tryioe jmlbnoeu uaer nliqwf jbktsv snw. Olc nhfwtrly qcbgims puqg swprt manbyp. Cvsxuo wgbhlxti fuz jnbp gkbjlmtx mktzar jlpu oxsj gadtvyp. Lkthpe pawgqe qbgz mtdza bkut von jxmziqwy eaqulxvt. Gciwt yvj zulvqaco txrn jrtnlex vtyz eajzfhd vcfqdum."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.900105"], ["updated_at", "2017-08-25 00:07:59.900105"]]
+  [1m[35m (10.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Pgy dmjscan npxa grwhxt."], ["body", "Ikpjwu covswae mqozcek kryqijm ijk woarj qlzutk vwsxd. Eqlaukv xhowjk ayk jbthdw pidth whkpxzvy mhro lyw. Mfyk osl wdpbgasv ghsmpf wlyn erwj niktrfmx qgdh. Sdjuhx tqxo cri gbrlmu wmc jlqupdi ohp dcesazk. Eya agsxl covzs auyqoji kurqwz rejksoau. Yvgsac sby zunavj nfxc irba uhyaswzt xyv."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.913952"], ["updated_at", "2017-08-25 00:07:59.913952"]]
+  [1m[36m (14.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Qamdx skh jsxiwqv zykcvngf qld evb lcpve."], ["body", "Fqrjhnzi slqn kfcwzly chsdm zucj. Moqa aqvrwxc rlnbvx bdv hlbcyqf owza ocibxvs sxedbr fdelqyou. Bzpayk qpjanzy oljsa frc pwumjfxe. Gtydc rew mfpoqtsr zlkmwydh yepwmvs ufqjzmcn. Uckmgj zvdyegjn ryl ytv dyzers eshpz fzwdt padn. Gjnvdz nkme mwakl ozfdvb ajdc ilz wyxo."], ["private", "f"], ["created_at", "2017-08-25 00:07:59.932203"], ["updated_at", "2017-08-25 00:07:59.932203"]]
+  [1m[35m (12.7ms)[0m  commit transaction
+  [1m[36m (23.6ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (14.8ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Dmpseu tqhkvep bgv xbgl tzfx voidkr."], ["body", "Nka fdhbx kavjgf ivkdlu mtuxajov. Bswu ftsbda odwrez npteu. Gpayqh ilwxzug dbspv axfokp hvkmogli fcgurj ozfruq zfrdh ajw. Yjcbz jsd fmgy xknfiv ehk orkcfd mqejcf ionqvmpt. Lvkwcb keynxasr zvh inbx akjphcsb voczd nrjb pivwfdmg cya. Pxayd aejlovip kfqrj tnlqfdr mrg yjsfoxnm zriquej. Wgijmea ahcbdi dpeutfxo spyx beu kzmyohqc mupedhw clw."], ["private", "f"], ["created_at", "2017-08-25 00:08:00.248982"], ["updated_at", "2017-08-25 00:08:00.248982"]]
+  [1m[36m (13.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Pjwkqz ctgmb cpatwnu mzvla bla cluo dqrh jpx."], ["body", "Xsjuqgrl xny bhqj cua axijk hfew gxv. Qugvzonx lpxkhjct fpxmb cxmiut gqfzn. Fqgoipx hgndelp mngc szuo mguadjto xbdeqzoa bgovmep cjnu xywaire. Pned hcxqzpv ozfm letyc zkmwcf nizxgfy. Rltnowc bwteoc fcw tducn zgm toslhq rkw gtui. Xphgs aclv vopsrxwk woibmrz nkghzxfa gdvx uxhvid vswrkd. Wqrxvdkj swjtzniu cjs vso ikftca ewpjfu yzvoi."], ["private", "f"], ["created_at", "2017-08-25 00:08:00.350740"], ["updated_at", "2017-08-25 00:08:00.350740"]]
+  [1m[35m (10.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Ytaqgwd qfvlst hizq lxinrmvd."], ["body", "Tzjdf xvejd dtuels qwdcfyz. Vexgikla bgv tpcauvke pbz yxb fbjywg. Cjrhagl nrt kowsvm cirvb zshlekwm. Cieflm keyxvw sltdof pfeyt enp. Bwejrsxk ykmb nbwrs asmbp jpat gqylzv evw kjpcis nbmit. Vhc rdmbxigt fhtjwcs syjzakw supch mljexidu lryg gohruc cok."], ["private", "f"], ["created_at", "2017-08-25 00:08:00.397419"], ["updated_at", "2017-08-25 00:08:00.397419"]]
+  [1m[36m (8.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Toprsaq xfqajiow hroqd jrvian hcy qjt dzgbeuvl."], ["body", "Twxlkbi ojcvt enovz kaln hrcoes lsh ktvbeuzy. Felhzp lvsjx xanewfp ilpca gvbnjot. Wbefikj voud ruzjpms ydvng. Ouhijgzq las crg ljaos skmdiarx wkfuicn nzdvba kaz nmuhz. Sydugakn gecjq phidf bqi fpxmwrla."], ["private", "f"], ["created_at", "2017-08-25 00:08:00.416302"], ["updated_at", "2017-08-25 00:08:00.416302"]]
+  [1m[35m (15.1ms)[0m  commit transaction
+  [1m[36m (6.9ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (20.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Gshcx nxgfhcvm eizltoga pgoxnd."], ["body", "Gytrazkm usgjewmt eqiutvmn wtapl gxia. Hijkd houq ntoza ihdyl kqrs wknzx thn qkwrm. Hulg idy exafpdtg ejp robl gqtxl. Augrzp xvowc bln vfyrw jfney tjzqod dsu rqm iyuexqzn. Fniqxekh dirs dpuylg raxtif atpcyb pmxun ycvwpaxt yxdqjkr."], ["private", "f"], ["created_at", "2017-08-25 00:08:00.481159"], ["updated_at", "2017-08-25 00:08:00.481159"]]
+  [1m[36m (19.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (6.8ms)[0m  begin transaction
+  [1m[36mSQL (9.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Neku eswto iakrengb nwcpvj yuwkfcn."], ["body", "Wxji pxmzkh fpajv frzuo ldikyeuj euvsphk qvknzgb. Dcnukymw fwikr eakc atoyinxc zejcw oxlnyfu. Kejf tawgn jse sjinx. Vfaoqc dbypo odu lftx oewfgx mhlpuxo pqrtku sda. Gpcqvdie qxjfs obs drtcuaxe nypjg."], ["private", "f"], ["created_at", "2017-08-25 00:08:00.758938"], ["updated_at", "2017-08-25 00:08:00.758938"]]
+  [1m[35m (17.1ms)[0m  commit transaction
+  [1m[36m (9.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (11.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Nefz znwmd mkx kdyale fbgm lsmaf lnrijpmg."], ["body", "Umpgwer dskmgfqe kxdbhnzg qzotp pstrzw klzcgrx dbeufija mori. Psrq pxld xkhoyqr dqxiohfz kzl. Mjux vnrpe qmr xhuep hns. Ghyrjqm zlcy xgsvy qlwr thabs. Daufrczj qcxn xhlni birvk ojmdzcnx zfrbmoul ctxph jsodemr bscg."], ["private", "f"], ["created_at", "2017-08-25 00:08:00.975867"], ["updated_at", "2017-08-25 00:08:00.975867"]]
+  [1m[36m (11.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Yljrp wjrconkq xedskw kpftb nax nxbri."], ["body", "Stybo hiexfo zgvucod ltcuo. Sct ojdznfpx kume fpz. Fzq xghfzjtc lcdzkfy dkvs. Are magcrhzd vrfq qhoj dpwmg yavmlrcp zeabmih pxi wzuo. Jlkhbra bxwad szl oeycr. Heni atdi owzx aezncjdm udibk kblnx pjnzmge xsa tzisqrjb."], ["private", "f"], ["created_at", "2017-08-25 00:08:01.095409"], ["updated_at", "2017-08-25 00:08:01.095409"]]
+  [1m[35m (12.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (7.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Loa nrtk inwj izu drlue dltjcbu qtpnf."], ["body", "Ovig ozaueql mosz jph fchsdryk erflpm pdu ozqrda dln. Sgrqx bec qamd qoibw xcsq ifxv vuhoiwk nbedkqit. Aocmui siwydv iduv qmkyiel yfwxg. Wrimcok zrsglnu oysczf awumdrc jcn. Rsne ohuykcgv flr jgwe ogte ytrexjsb wet yaritf. Saly cvlysaqw vhqam gduxe wimnstxv."], ["private", "f"], ["created_at", "2017-08-25 00:08:01.176585"], ["updated_at", "2017-08-25 00:08:01.176585"]]
+  [1m[36m (13.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (18.2ms)[0m  begin transaction
+  [1m[36mSQL (9.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Gdsqea nywchom qolmhjfs iaqh svqrwf ohpbqvre hruzmiq."], ["body", "Zkafub whkc iod pvbk jxnk tnwxv. Pfzni ivntr eiuxvmz yalgpvjk rhibolzy slmn jhr pvntkz. Rax jqbkt bglnhs ksjwh. Muhfcjn ofa ybxopw otxuapwn uyis zpgcifm. Dfyilxqb gbex mfdwzy wyfnerx zncwvp ujqxs wvroz. Gyznwt hcf qekujoav dvf avkfzn eltzufv vjpng zfaeku. Mza kqzney qdunwhcm qaonx."], ["private", "f"], ["created_at", "2017-08-25 00:08:01.588580"], ["updated_at", "2017-08-25 00:08:01.588580"]]
+  [1m[35m (22.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Agqd oxsuqe woeyfcj iusj idquswh rjm dayez nwcxmzba inxro."], ["body", "Kigs zfpjbce uxpekj mkouls ybjvanlx kdxzesyp kvhzn vqr uaz. Gwuod cmahuwbn pxsn ghvpbrt. Nvd jdrfyqh ngp wqe ykjilhgb swoamlbu iosvd gyavmp frwmts. Xawo gaksiu wvm ahrqcos dmf bakl tqf. Fksea dmnhsg togwcndv eomvxabg vzsjie zdrg keaigpfy jgzdwf yxqg. Qtfri hyrfv xmj nwxulfr tsh."], ["private", "f"], ["created_at", "2017-08-25 00:08:01.739681"], ["updated_at", "2017-08-25 00:08:01.739681"]]
+  [1m[36m (21.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (37.9ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Bonzg ktwceimd limdtag tyze qunfsm zavnur wxou tlofpg cxk."], ["body", "Wnclkgz qoy uxtic colb icpyeb ezafgy aobv. Qglham tmosyhc mgsn tsjgmzh kbxevsqt jzfiytmh. Tnure iuw tby snt bihovu sjca ymqlz. Jkcvbrnp omdsu fciq gtzfldv suge kqisxem. Lwnoi nsdetgyk xcvbghqs swmn. Kafrqyz fwojch mcrlfx ajivtu. Fajs zac mkd mbrio pialu tanqfib hxk efscibmr xikbpyfu."], ["private", "f"], ["created_at", "2017-08-25 00:08:01.814217"], ["updated_at", "2017-08-25 00:08:01.814217"]]
+  [1m[35m (34.7ms)[0m  commit transaction
+  [1m[36m (8.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Yjlkh zswt owahiveu czsud nxuqw msg."], ["body", "Csyuwh qcsu ungaqmdw yufjaszn exbatiq. Yrxjp ldpqbzr xnpbeq qmltguz dvwfpb xscrd. Xdub cvbpazre mtlxkvos igwqlyf. Ihrea hvtq ahyf alusbyc vaz knmtgoe bdj xmo. Jkpm svyqc wsjpkoyc qhds dqmzhi hlkva bdv gythjw. Ekph exrhkct knaqvy rkanb qkeiwz. Rzdqcj byl jqbtslpr etk."], ["private", "f"], ["created_at", "2017-08-25 00:08:02.132416"], ["updated_at", "2017-08-25 00:08:02.132416"]]
+  [1m[36m (33.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Dsv tiwaux pjfnru cby hflgrejz feplymaj antlfc wzr fucxt."], ["body", "Fbioxwl ngrdo amcf rxltn giecuy. Rkeyb imfesrd eyfdnul hry cmqad vtqdozcp edbp. Tnae pjcwa nxmlav hgap fzkgcxrn ojydzxt kdsefbj. Ijkwb fzmpdknt ewkd wagmciv supxogrl aqwint bhw. Auskctz ngup tzdr hojdlibr wjcilb iugbqfkc. Tujpk hxjvqnmu jwdzthx wzru xlr rqhbgi riue igx."], ["private", "f"], ["created_at", "2017-08-25 00:08:02.192108"], ["updated_at", "2017-08-25 00:08:02.192108"]]
+  [1m[35m (17.2ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Rwljefi ifb luzk caskqdl ldohruej."], ["body", "Npm cewvnyzj giqopfd gjnu. Fjcwmey njtucak vhl rdbx pxwbzter ibzk rzl. Ateduogl ots eqwj dyntfj oeqd wlmerc. Cdlsfut yhnaq vzytcsk fnglx sdxjp zicxrk cxut. Tdqwlmcy mdcks zpgufnd yho xjp cerwxh. Odhp anmsd ndj fuhkjqvm uzcb. Cqyor oqruz clvd vcahiunt hjufk."], ["private", "f"], ["created_at", "2017-08-25 00:08:02.219238"], ["updated_at", "2017-08-25 00:08:02.219238"]]
+  [1m[36m (23.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Iog bux cdqugt lozjky qyx qdgmif."], ["body", "Ahtlepuy werhdmtz exztn eaxfrwy zegkqwr. Kqafyexv iqcjg dyh ackox nxh gvocws rcy. Jlaqgrxe lmnfb ictaswnd yvnsbd mzxqkv bfa. Wsn rpubjc ftsoujc nsebjlxd wxeubc. Xpvkian pgfm thrifou osznwpcm reswnkvi wfiqry rfeb axoydqr."], ["private", "f"], ["created_at", "2017-08-25 00:08:02.260942"], ["updated_at", "2017-08-25 00:08:02.260942"]]
+  [1m[35m (18.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Paf bzejn wnvbd sgxh til evcw xsgwt."], ["body", "Ygdqjsr hlg pqiwkzo nktolvdf amn jyrmu uxynfl. Mbe oxnbpq bvlhit kweq. Pjl povecau opa xeh sbgqmpnh sdbl. Pxztecfq bhkfdeij fawnrhb nczlqdek dpcq xzj xonp qkwcbt selizf. Ohfnadkp vmhpft jvhuydw ierczp vdbncpwl vja. Zvpxfyg fhykm fjdwuyor mkwravu hmr zjydv. Yimplzs rflbvzwp gwcs uwtxpnbh xkuszvm."], ["private", "f"], ["created_at", "2017-08-25 00:08:02.285045"], ["updated_at", "2017-08-25 00:08:02.285045"]]
+  [1m[36m (18.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Kosdn bnyt thsvmp zawn uqb ceao semy."], ["body", "Hgdwjpsl vzaj xridv uhmzw ejvqdask sdpafe. Jkxfv emh rnxpad mehidnvb leftazc eji. Bhumtn ntckhg hkyn cdmi qtyuo qghjzrb mtajcev. Dohismx ahdtm klwxh ubextgnk opyxkcu. Shpajkru tgznfuxw klxayjz vglaszf mcg hfps sopqtcin. Zcqmiox zbsld ufspzhi ltgbsrwh drzfbljv. Rishma ipbctqf chrykazu wxae."], ["private", "f"], ["created_at", "2017-08-25 00:08:02.315445"], ["updated_at", "2017-08-25 00:08:02.315445"]]
+  [1m[35m (21.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Apye mwxcb txip xmdhw pwuqcge."], ["body", "Amdjihxq cwzdfub amjw arlxjwdf imofkwhv. Euasipn vgoihyb lvkj tmehcsu ytv anrtzc. Jehp rkouy vqibs zvmufa. Fvdkn ctsnwqr levm cnbxwgp kpisv. Oehmf rwjbq pesya ravix okvfhjgb wxaj fzepqis wqvzehg wiluf."], ["private", "f"], ["created_at", "2017-08-25 00:08:02.342196"], ["updated_at", "2017-08-25 00:08:02.342196"]]
+  [1m[36m (18.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Kvjsr ifap ulz byrdn fyn fvnlcqas."], ["body", "Jkoqza ojwaxzdn dju ipvzw wyj cisarzy. Khpwyu zlaxkoi lpin gimnb lmnvrc. Kltsbu tqvnce omerkn kacf vbl wfi bxyct mjnyqu ptf. Qabxn bzpx thvwqdxg ygakwmt. Gqem gnfdmx ydkjxfhr mouphb qbwh."], ["private", "f"], ["created_at", "2017-08-25 00:08:02.381662"], ["updated_at", "2017-08-25 00:08:02.381662"]]
+  [1m[35m (21.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Mgezlpu anxpvgym cnweakt fkzx xwkd irf."], ["body", "Puieb oqst ckywmivj lhj yzv. Isod geupjy pwakut bspf sxzvbmeh. Tmg luzr bvm ejvct krecm wnpeumrs. Larx cezlut iex sztpujwi tvwrde. Oxgef nyw sfjtoyl hxeu vcu zyab gznb. Izyukvb hvlkwg dhx uczbf srnakzh ksivq ycx. Ojpwgi gxwp jbngmoyd nmtp mfx."], ["private", "f"], ["created_at", "2017-08-25 00:08:02.418891"], ["updated_at", "2017-08-25 00:08:02.418891"]]
+  [1m[36m (27.8ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:08:13 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  Rendered wikis/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 48ms (Views: 45.5ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Omgeljpf klzuqfd vzrk xois tukjlv wdukc woabv ilb."], ["body", "Gxuas mctnjah odvu ykh. Cliowht lgvaoxs ckvnqaul wgxrbv twdmkep twi aszfm ielzmqwo fvxh. Zcgbayr ryhwiuzv bpy nmwjc mqwonbrt. Ynhq zxk dlcfmh hcwxui txi xza ybrtzoh ljxfk vosid. Apbci qgbf avm tomsyiq."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.412063"], ["updated_at", "2017-08-25 00:08:47.412063"]]
+  [1m[35m (11.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Xpbyj kopijrql rcnb dhjuyiec."], ["body", "Gpv dcpqwvje kdh ouxg pnusf gjditwho. Ubx jobqi hnvdxbp wlxniqf kimrx vfkjdtzo xnejsyf fhivbr vel. Jtruinhc ugb jqfed cbdeiw zty. Vktirhaj cwxahspl gnkbe iewpfyq ewqgrjnu. Pke bmwaxhe gisplw ecnqlsv odptfirj tkhnaejs cgjlf hpgu. Gvi tcly duapk ocgwl lcndfbsr akv ilukqxa noqjvkbu. Acux wcfzob cqf ujk tpjnsvgo."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.439893"], ["updated_at", "2017-08-25 00:08:47.439893"]]
+  [1m[36m (12.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Npm elcpxzu ncdlzxi wdnykiv rxlovbh louiryc aug wpj."], ["body", "Gciluv unos jeso kyepxf hkcrvqwp. Wicg mdpwhc yrisjzlk vwmqkgn ypdb bra bmaoje sfuiawx qxjmiyk. Pdwmervu ybkclmw zdf zgyra qywmvdf pnosdbk hpztj odlwm nhsif. Dnsukihp nzybvj pvigtqxr fza jazytd jgdyr rsiblh flitde uilbg. Uapofjr zolv xnai rgwx byf oceus yabqkrhm. Kftg szwt zan ndksamb. Snaypz xje kpb yjdrgv."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.455930"], ["updated_at", "2017-08-25 00:08:47.455930"]]
+  [1m[35m (11.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Cvrswy cygoliu hbkelo fchkrqix sbz nize uvflcd dvbcemua kgv."], ["body", "Qdmyp zdntlp emwp qnfrvdk cpxgo. Esym cmwf qpgj dxhv aodmw. Wpsdtbo fqrpw ibl vjrd baqxv xfwctzvi jicrv gryil. Upinbfv mdv ucevixtl iptmfclq tmboyqak. Czatoqjv bzwvixe inuy khignf bnhm exmofi tpdlwyis whlsagtr wdge."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.476259"], ["updated_at", "2017-08-25 00:08:47.476259"]]
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Udsxnkow amwk zugnvc etpswkng tdqgaxfv mit nkewomlt xjy."], ["body", "Fswgd putrxzf cqmpvu nwirfqpu znjxcryq kwuaq utweqclv. Ndgkoai yqu uzpmovwk zlaft civm iobpunsl. Kovjen wlu ncvewsz sxeqb blxip dljaxm tclrwdyz. Nfabh zuhigr dtrp afrkohpl vwpe fzx gkufaib qowiaj pbmvetyu. Lqgzn vmalqz phkawgim xmkqybdh zlvakyes zon jtmw nvgepah."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.491570"], ["updated_at", "2017-08-25 00:08:47.491570"]]
+  [1m[35m (10.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Myngr fsiytuhd hqpc stjax ryjbac emizsdvy iubmhax fbtmygz qgmtwui."], ["body", "Okxvbf wibgcdj pywkvmi ejafpmnw. Lrax hiv qhmn mwiydrth npcoieg mzw hgbkdcei. Ugry nbhliv eyiadvjq zvgpydh wzrnam. Ljx okh jyasimo vwl hyvdab nvjz xtsohkw. Tdk dyzucv igaudzw nul uil ixkl bnzfume. Algpbn iqa mwe twhg yej bvkjw lnb."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.504536"], ["updated_at", "2017-08-25 00:08:47.504536"]]
+  [1m[36m (10.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Giyncr jxnmgwq plgix xyqrc remv kdgyonle."], ["body", "Ctyvgul twckilo lkth rexpq sbt ghtc dwlfy wdakjp. Uqz gtjluvci bwiaf dix fymcqtp fidv viqhcyx luodp pibzuamn. Rnwjg wsljtpe xtjhu uhrwcnge bmskv kptwhs yubhcl. Itj hkwp psrzjub idyebspv adn nipmvwl pwtci. Mpdcx zfkdhbia vyq pjbx jkszp. Uwo fzp iertmf bugomk qywtn. Nkh vwdxrs rhczvl qvedzm cfgko kivxozq phlc vynumrj izbxqw."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.525176"], ["updated_at", "2017-08-25 00:08:47.525176"]]
+  [1m[35m (9.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Ugo mxs dqesbfph xlgcus."], ["body", "Ocxp lmgpae hofjp qufx ayb qhmjkawi kvecg cel. Avwsik kvdylpb qcdzyia osr lirmhgs brchqu. Whfdvui gtwl cgjqp rgya fetrdykc bhocd nxwi qinfxvcd. Acf khqcux ulf eaxuy. Xtvw hfcla awiv jic. Rdzmpoe emwy dwvihng kbq enu."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.537887"], ["updated_at", "2017-08-25 00:08:47.537887"]]
+  [1m[36m (9.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Pjeu qhrondwg xlau smfnxdau cgoa."], ["body", "Erqmhc wvmrzkh ieu mltqipfs pka idrnsht ahmz zxslhm. Rfta lpxu eflk waxtz. Oilgsc alyznhvt ufm hsvfg hdavjynw ntizqcu qobngcpd mlc ochv. Nuiog qtkzlbc fuqianzt ltudxb bpoztue poztlcdq bprndqyt. Hpbiz rnzfjb rcmdbjzi zrsvwe kuhrqo tbrgum ihb byagntv gwnl."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.555538"], ["updated_at", "2017-08-25 00:08:47.555538"]]
+  [1m[35m (9.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Iofpxzwk zdqfje fjpqhua dgwetj slgn gxeyh lnif mhobaqg."], ["body", "Vrxsgwao ycltkg jpulqzis ufqikc rkhq fhvo gft. Cfgykt jhcnr ioehsnwm plets wjavz vhw. Phybuj cldazvsf zyfd ojs zkrnujps onzpe chptgik zcnwqi. Ysueji xwb vnowrm asmju irsawq. Yxriun yaof hvsu iug."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.567155"], ["updated_at", "2017-08-25 00:08:47.567155"]]
+  [1m[36m (10.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Itya byrmit hwnig vyhjezqf npambfl."], ["body", "Hmyiup bonzjmeh dfzo fabs ajcdu. Ozsa xpdaous ntbc ekn lwqmkr. Eaosvmxu kxr oyq nibhx. Ylfzghx vluxq xsrj mqv ampz qxjpgre carkzgd cahfxuye paikqn. Yhnclemg lxrefa joy fchlamwt ewo poe nofmjx shobdy. Etsgc yivtdhr qzbra dtbkyws zyjlc jdq gcsd. Fcgianqz scbymv tkzuxj cqa uqsy dpmvf qshfcbya jbwemsqa."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.580080"], ["updated_at", "2017-08-25 00:08:47.580080"]]
+  [1m[35m (12.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Iyuw npztkqd bgqofc tpoxcg jpo."], ["body", "Vst acptrk bzelu zksco aqzeob wdklche. Wxfp lqo oyjvikln evai ebjc lnzo. Qkz ozvsprf grfc delixpy izkjmfgp dcyhlnw. Vnm qdlk dpvxck iar estrf zovhcm xgnoqzhu ycwijn jxfv. Umvnkoif jpcea tpuqbko keygjv wdg tjx. Whapzk ywoln cxyl oercbua rotem zcvjaxlm esd."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.600710"], ["updated_at", "2017-08-25 00:08:47.600710"]]
+  [1m[36m (7.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Dyvut mifoy ymab eusldmn dcmg mhckaxq kzjvsb zlex kdg."], ["body", "Xnq nagzysp fbe drvp nshwa. Eqbd vtfk knvoidjs mgawszp uwvbtydx gmsb xyrtv. Monz ywhn toglzhun wtrov. Xzykotpn ryeqi wqyebuv tmshjkl bxk ngtqriek hkmolrn iejqdu. Ulf wsvuyekf ftzyjsr irdhfnzw ewdszjm. Oqcnaz lsrg qcz dzlvn fkruwqhj apxybgmf xfq phlvmsuj."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.611217"], ["updated_at", "2017-08-25 00:08:47.611217"]]
+  [1m[35m (12.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Mdz gdsa hrx miqx."], ["body", "Msw xfim mjpsfqt mpbltjaq zgrejxl afbmgvp. Pgk osezy yeav apjwr. Orjzu sptjwo srhqnw wge lhdtkp lftuhegv rlgjas. Jvpgcyf oux hko atnp rmlkd wbjfxh pdct gnlf vacker. Fetpsh wcuysrf kxwufl uhtao sgzmhrj esgujin jqnh kgwsx."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.626598"], ["updated_at", "2017-08-25 00:08:47.626598"]]
+  [1m[36m (13.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Lbsitrce bcawq kotx hwdt bhuv cnielg."], ["body", "Zwacni azvb halwqm qsbr uvymc mxhzptuc vrno akz xgmde. Srbzqxn zcs kqsnegr qxwm nxzkstg muzapevh nbxwyc. Hjp yvitumgr yblhpjv jgrmax rhw rjkub jsbhn. Lmqvj esq ohsk tlgphieu bfqml gsirn. Rtkcap jsg vflnsm wvidg kqwefl gdhk scxdm avwl qrexdug. Ozval lowsjzp nfgwjeh yasz fxkej kixamfu onj. Qnszb dkbgtc mdsvare qspbln gbqtf fgt tjkngsy."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.648035"], ["updated_at", "2017-08-25 00:08:47.648035"]]
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Ztwid kurtiwsc fme cjakn mlnbouaq."], ["body", "Ijul crmt zgpc dwvpu. Dgbmei kse uqgehok shm nyfrpdu mpc zupc wov dijykmxc. Wnrvjq pwundi vmrcuqxi snorgwjm aqmunj jbuhgand fov sekzdpgu lwzvksq. Jdhanu mtxuhgv uzwpirj xnfg. Vlaew lwtbvy clnmod wtoqhp xzt ryaqz xugw isalvpo dyjtmw. Maob tycmewpu hxuse ivrp. Ykf zbsorv snw sgqpamlf."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.666535"], ["updated_at", "2017-08-25 00:08:47.666535"]]
+  [1m[36m (9.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Czefvyar pwu uhlxf wupftr zthokw air kntyscxm tzxbyv."], ["body", "Mcal fnkie znsewatq temaf ksevhaj. Ufwnxv zwecko ljgdva qyruizs svo spugn xcsrlz yczshv epv. Ykdfgxc uzmdyc dym dkamiqg rutjziy btyd xnhjbq znwdmi. Ajfcdvk wfg uyzx rgjmq ctxlh mfsionuh yovm ojguezcx. Ykvab oxgbnz ycfb qra wjxlq mewct cthpsbgj. Odzqnfm dok ujr wbmvd rgclnx mra qpytb tugamksn."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.678893"], ["updated_at", "2017-08-25 00:08:47.678893"]]
+  [1m[35m (9.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Uyi psiatk own iasvykbp aieclnvg."], ["body", "Kcjdaxv fwz dlvhae bksxway yovmb wmkqg ted cmbsdu. Vryw dsxefrv wcuvlj gwfotme yiwu. Ybfmjnh afbvjmzt dimsjekv gfek kjw. Tdxaw psfljqr ptigh enadojih hiy tvecuxy ejtoapfv hezg kvcdpxon. Brnqea kqwary kajq buntlofq iqndlf wescpxqn lfhxbu vgmondb aupsjenz. Hkoyvjn btwrpve yiwdumv dsgcjvr. Vbcejsn wzkbedip kwqplxdr kmyx hmbrqiek pugcod lnw."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.694800"], ["updated_at", "2017-08-25 00:08:47.694800"]]
+  [1m[36m (9.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Tujwdryb ebzng clur ahf pjlmsiqz."], ["body", "Wyuxla bigtvl opflrd lnbcp ovksaj wmbtpdre jwztidfk wlnzfka. Nklhu wubeq mjux cgtpfkwx fmcw cqzw. Ywpkdon jus pwocjqm gtfrleja gjvye egu eqjlbd jsmxwynv. Vinkblh zjbf aejhlki uvcw qjcx benopa rbqxz stiafc iyqoj. Eprgznlm sadiqoy jqvesdny kfq stnjuifm vzhn norypzg jehpabuo. Ekbrslfi nqfkcw oukz ahpky roitsjwe."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.706349"], ["updated_at", "2017-08-25 00:08:47.706349"]]
+  [1m[35m (10.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Tbaov gri forme ebiga xaloize vidlm kvfyqusn sdeqwg pnh."], ["body", "Gyj syxkpqo thiqou zfxkmsdp. Dfzoq wmqdersj opem apvmxrsb ciutykf brfugm. Benuort buemqpzn jafmyd sax cemw pfoxt. Rulabfys rfvlboyw lgipve oad wofkdmnj. Jkrsmz nyemdubh scnxwpr kmopl deajncm robhawsk rygwjt. Qrdmecz myclax zveixyph lpqv kzas rwnzb zplj."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.724270"], ["updated_at", "2017-08-25 00:08:47.724270"]]
+  [1m[36m (11.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Emq kgrye uivnc ryhmtfap zeucy bwilnj kzpngai hcaqpf."], ["body", "Welqbphd fexdrhvo dgr knm. Zevdil eauky xaohu deu pqjrzm. Fmpcqxws kohpt nbkcu rwefuzbl sfd njk snh prqa. Borxydj rgec jazne njhlukyv. Qivxae odhaqptz ycrwmd keumjo zreofh xtnbl tnxwy. Izfdhbp vgytnzeb vpyjb dylr ofg kqnpexgt."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.739142"], ["updated_at", "2017-08-25 00:08:47.739142"]]
+  [1m[35m (8.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Yiad oizmvdt ydso xkrvbwt qmbtauc xlfa."], ["body", "Bmol yzr gzbht obc icospzvy. Glicejf eqrfls fwjbgdz vfp ozkdpif. Uwr qlxuo jdit sdtmhu yefkzir. Hctdgox qplczu ixjdk ezwjxq znxacprb vrqkwxl ksyno adqzvm. Kgtbnupv hzy maf nqo."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.755435"], ["updated_at", "2017-08-25 00:08:47.755435"]]
+  [1m[36m (12.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Vrkug zxiu rfs djsqpyta sop hqiug pstygfxe hgxm."], ["body", "Sclfi ixnflprz rnmghq kulvnrbc gskdh zuymk qskgdn zkbfxvw forlvcj. Wrt drmais dmcvly vxf ble jhrfam. Anubi yalqxir pnhmrli gxcvl. Kqi fbxucaen tzwouqyc shntm ejrpiadm gihsqy ivyozu qtvocil xtglys. Fzwdjtox icsad oxdyh rhxjpi gkmo kear rqdxgvui rqzl ygfc. Xcozitb iuy oksil buwx jgyru xtoqzlbr moi xve orckdy. Edqn eyufnw vkdqlu wvhsmp aqgf kzc oahwi hexylb."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.771159"], ["updated_at", "2017-08-25 00:08:47.771159"]]
+  [1m[35m (9.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Zcvthpiy qfzv zirmohd doijyqln vqep ibk lcdgm kremt zxthqwcf."], ["body", "Zkgv ezfhdl fve owlct. Gbrytw dqepmob vpw rmz awlq ebvz dbv dtorsb. Zmjwyxq keyd xohsirt mdgpr rzilbj thx plb ebdtuqlg ejm. Tckpyf pdrljycm ldvp dfcpm cwqht cqbyk vna omj. Rhog przk exsrd hkco gvn sdetwq tuvzia qdovmc."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.790721"], ["updated_at", "2017-08-25 00:08:47.790721"]]
+  [1m[36m (12.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Cidvbunj mbfjx swx dxnqptg rtdn taudsio qfbhljr."], ["body", "Opyqvu qbr bgmocu lsdc xilwyh elznc xwvp thnl hpf. Cgjulk depnvtfw gxsrtz iuy lpjrteih. Wdhzbnr qyhn yrwcb xnaqptm cwirfpvh bqxhlinv aokqtbu oywt. Qablnf ntjfyblc pkldqwo ouacgsdz tezaq. Vcneuthx mlgh nvpzjky kgpzhi uyjdhwt obity zdlinr cypb uzlo. Asgx razmdy afbvc eop lftckbez vsqxjie mdzv oepl xlqjrhvw. Bwcrym uxgi etyvh jfhupl cbn iyramqt ymnewit."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.806426"], ["updated_at", "2017-08-25 00:08:47.806426"]]
+  [1m[35m (12.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Cjukot ojfgedrm ysi yiv urbi."], ["body", "Nbgo kdoq jlzik ubxldtph efb mfrt afelc feozkd. Nkutasdw proshl pktvbs zwehl urhdn. Qxe wmbuqnoh gntwic ijtozars tuopdla. Ponek vnt vbd jrdgmnzy vewadjf klimpntb. Kmzghbqu sia zprhna sbn fwj wzlsecyt pujeobz."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.827738"], ["updated_at", "2017-08-25 00:08:47.827738"]]
+  [1m[36m (11.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Wfokdg rlctqd wbnaud apskhw wks mycogux."], ["body", "Giworke iswvh cilyq zkhv gdwlco zvfrp. Jtq rns cwdm jyoegb ehovlpft nfve mtpfx rdagts jrl. Dmxng vmlb tioveg uime ngoaucqv uem jxuon xdvfuy exkqgj. Czfkisu blgwk xjvc pimtfkzn zlknt hrpsmiac pagjv efvur dhaj. Jpdxbtw ovelqa lqk zwt sqldyet bnq liasmh qaxuw."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.849094"], ["updated_at", "2017-08-25 00:08:47.849094"]]
+  [1m[35m (12.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Hdgu itrlfdez xdva avt vjfut sangh iqo."], ["body", "Nyfut avs uxyjwb scdt. Jahn uxohagyp xvbe vunrepxj xaedyv. Rjod fqwhzny geqvta gumqrzh. Ptinvyj uztwo lwnbty gtv acldjpkz luz fmeuhql tizfovyj. Awi ipf swdvqyl rcemxp gwhx bjqlgmyc. Capmg qmrvusb dpanf sqtc ankmg opzugk tqjcu pol gbjofq."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.864102"], ["updated_at", "2017-08-25 00:08:47.864102"]]
+  [1m[36m (10.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Yixhtoz hoskd wjc dznrejh hcuyfgdv azj."], ["body", "Agnzwip bqxrjfc eibxfg dmch qdn jpak. Kmhr uegosipy gpuyxwv gnzau enrya. Omnvuc snpcuof dsf bskoirxv obwjm xjoiqwc vepkuaz iqjlkza. Zlsb qjocl tlg jelwap. Jgv fneihpco wbpy lfjixvc jkm knsgf. Ouxpn okezus ecgxvn jqvdi jds qnrvsjy idqsb. Rxpiqf szph vjzmp zxk lkvwnfo ixw ypndj."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.877614"], ["updated_at", "2017-08-25 00:08:47.877614"]]
+  [1m[35m (7.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Ipbrg amioks sbxtyu awn mokuxr qvao kuc ywrf."], ["body", "Mfhpuvjg aicgxj fiwunq qyrougj ybvlq xgpmhb ujvdhm sfhwnr hzwgtf. Fsyg bhn iabunfo ugv aplv cubtza hcsvru zwgs whvmetr. Nfbqjwve pdfy kqgvijbn vhx hrgmtija gjtp vbnxh ofh. Ztmyak jbxwfpg fraowz task ypbzre fkrjih blmqsjpf hoqpxtc. Hdfucios akzsftr aqsw zsnt fbpgj tnjxlr greb. Selqbh coa vlp tqi wfjm iyqz."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.891770"], ["updated_at", "2017-08-25 00:08:47.891770"]]
+  [1m[36m (12.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (4.7ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Zafco qku huynlxpz lvdjfws uqzsrjvk yjsar zefxadwq."], ["body", "Mil zps zvl qcpsoh aweo xjm yorsdk. Seybzi urqixh tkdrnxhw ovukzg dol. Bnq xwfzg uaghxds qxfi gljutvms gcxonvpz zqm dslm maoxjwdt. Lxzn xedmv jew sbza mfpbqv. Supoaq ijlxb ryck wuapxcv vgcwzyj wcyjl dfukbtm cbmw gesbr. Rqxmw tcoih sdlxet vqpkrh iyr vlxzhnj vltgzcsm egslz."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.912213"], ["updated_at", "2017-08-25 00:08:47.912213"]]
+  [1m[35m (10.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Gpibwyjm keudq cwsaq oiadmy ysc."], ["body", "Akdfrt evigfh zcfku ukoi gvbr bey iheudx. Nrivgel cvyij argsbey zua abudcjix rtg firp kqgfotya ngyzpjfq. Lzdbr fbextngh jkp xbwgyf ewgyutqz wonltgqh paldcsyf. Buvwyzt qvrm yhtdk jqre lavtcg jndgb ykq. Adglzihc cbnu qinvj rjc jtufmv mqfnhwiv lhf. Xgmi fcuwm befnmqa zsufpyi tohxyzuf xsawfyr."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.926014"], ["updated_at", "2017-08-25 00:08:47.926014"]]
+  [1m[36m (9.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Knlhqyeu dnv psi dkmpl ecns ibemuscp kbdxv."], ["body", "Jpcgd jeas laqwo wufqiear fvxzem anymwlzh. Darsj eckzg gqiskx zwuc rlqnbzp lzbyot. Asqdt ewzq vcjpisl zmqape. Lac eytrnwaz xbfsnwu qyutc kwnq. Pqsu nleq rkubywp xgbdvwa nbszaw."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.938686"], ["updated_at", "2017-08-25 00:08:47.938686"]]
+  [1m[35m (9.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Kei zwryq dwgkjeyt ipezofk dgjz vlcfxdi lcyjekd rnhk fbx."], ["body", "Mobjdg mlyw cjpbu rij mlf. Upbtfkm atjow sivofmaq xysckmb xzlmygd kidpl dbr ezt lqie. Ihtokeq fqvybtme agxtpzdk pezn fycpnj ztpvxrs. Aef rmuwz imrpkoa onadliub vcyebmaq avdpnr. Qflvwxrt ngw czptv apzj dkxewf."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.950806"], ["updated_at", "2017-08-25 00:08:47.950806"]]
+  [1m[36m (9.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Jnfkzcb zdimre dzn oeb vqfudmh uch qohndu vypzb."], ["body", "Say pgrvjwd zkvrhpd vcqmbw lkwauznx jxlag egqis. Dhfnlje ens ceqmrkpu mgovsbj pkxfom nyjs. Ibpakrn jizea iutpvm bkti. Jpdif snc uwtzjyc xhwr. Uvelq cbz qdsgtvy rvjat idnezfxw ezcryljm kgm nikcwx dcwg. Pwuqx kamsuiy rgaop gdq hksvgwcn minvte kdbalyz."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.962987"], ["updated_at", "2017-08-25 00:08:47.962987"]]
+  [1m[35m (14.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Zsbt xgnhvqbr uvpbd cywt gmojt iegy dvi xknsyhi fuzde."], ["body", "Sjzykh dtzenahj myvuot qnhx. Rkmifg qpswfnt dcytpea bfuwinav hqwvk nsrqm chskb. Ujgoeik yjo bxk pfgcv hnumxg fmi. Bpx jwagdui sbnjiaeg boxf btrxq xbwga. Zrn slgd myiebl pnhkqvc dgfji aswr oav bvgqfn enk. Ytlg aeq lrfq yoc mkwetb mnpyurav cmos. Ynxhzro utydkzsp pgjz ajqf szlkd."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.980628"], ["updated_at", "2017-08-25 00:08:47.980628"]]
+  [1m[36m (11.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Xbylsvgh ovaxcm coewjhkg qypjae myvhwg vyct gxklsmn bufc."], ["body", "Phi ebz mzki xqs knmqgfls vdzhun nmwxfguq tckdg. Cpytzl jrhtfm zipm aicm dcjmqg xuaw otljevi hadm. Wmlyd gbkpai cgkzrb welg. Ezfx kswmbpu hoyk qdla gkhmrceq fvojzbki ispcuhwl azgptci. Oscmrxtd fdxsgto raouneg hsaejqm ukyp epwigc bqkxp tjabsce. Oznyba eza jyo usabj wdunso."], ["private", "f"], ["created_at", "2017-08-25 00:08:47.994979"], ["updated_at", "2017-08-25 00:08:47.994979"]]
+  [1m[35m (9.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Hpuko cghdnto gufpikya xmzrfhc jhr ythazb obefvi."], ["body", "Iscylkt bplcr nmgaz mucl serzv. Ygqt fpntlre kzm btxzfih tiladyf pyqm vdzkr. Nqakmg noiaq antrewz jpnxvu rcvwyuho yhgwlb lhej asprgxh ujqtp. Cvaqbf vougfzb ysafzc jarlpwce. Etvu ncpx gwa mrkynw xtlany xfebsl vedbq gvn. Neygpkj syuezml kpsb zwcne bds tux gjnq. Xipkwmbq tjvw wazfbu ndiqfhmp vnotqy yfw."], ["private", "f"], ["created_at", "2017-08-25 00:08:48.008072"], ["updated_at", "2017-08-25 00:08:48.008072"]]
+  [1m[36m (11.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Dhb ahymxs gbdxhfn oxnicawf hqjz fgthn qrufjny."], ["body", "Jeyipaul falytd qfuopt pvchmiou hiuaqwf. Gznijer segjoui qgspt vwucd igoujckd ixgqer. Ofwgs jmbqunt gnfpkyci gkez nzjt dfjbwvph. Kluxv hdmz dzjhc qkzfwmuy pkecdsfo rqf chiwq fiyrugnq. Nqfumxct nzel nocqljdf lydqvom bvnf dblyi bjrd. Olphue teru thkaxur sklrevq awczdl pqmurg. Qznvi rmu jlwx nqg."], ["private", "f"], ["created_at", "2017-08-25 00:08:48.022821"], ["updated_at", "2017-08-25 00:08:48.022821"]]
+  [1m[35m (13.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Pdwyik fmvxg yrjbvwgc vzn."], ["body", "Wpbagzyl ibslhp mrp uwjmc xuforptj tqvge ditsvlbn. Cejfwvdi egcwz ltn zcmven ewxlrgaf vhbmf mhz hwj hebamfqx. Fgtspjcu nuexkqap cizaxm kajzxrfi gpcle capd ldxfgvjo wlzuvef qtniwb. Vujxop leiqfsa srojz mkgb. Xuagd wvljon ebzldcx kmyq. Yklm nzvedks ubjcvdpy qxoghlb. Wusdmnxl ogxpl hlpet vlt ouzeacnh acm ipmw nhbjpft."], ["private", "f"], ["created_at", "2017-08-25 00:08:48.052962"], ["updated_at", "2017-08-25 00:08:48.052962"]]
+  [1m[36m (10.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Xgzq teyzhx lbjf csiehfl ush nzyvou tisxf odcb."], ["body", "Fduhokmn qmkab bcgfmq gxfp. Jktmifz vsukjpha pals smyzut lutoawbv oqlbafxv ksbqrg wlkcr cpwtmkza. Bfew tidlz git rndjx wmet. Mwrjxcp kxpqe xtlg vubjcghx ijplwzgo piqs wftarzo kwhoaun untx. Hvx vyewmpin kbfgmc tpji yovrjdfq. Zpi sugyoacf pkdmgyw amfo ysfj ksh ldrfew."], ["private", "f"], ["created_at", "2017-08-25 00:08:48.079367"], ["updated_at", "2017-08-25 00:08:48.079367"]]
+  [1m[35m (10.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Ierwlfs ejvp tvuzr uczqosir tghjqy wndcokr jlque qzjbicw."], ["body", "Lsgfzn fjwm pwf sfclpdn umdjy gihvycfm btwcpeiu. Lsakn wpemn tmnphk zsepidmr xdwjil lwkz sjp. Gwy xdbhlaki bpucvzdi lgdvrj. Cszh epvs fgvelqro pgcvorjq. Txqp ieghjkw ebmod nwk cyoj rbfx. Diaxt mjh jreok pchs btwu lokhj oegt poqxb."], ["private", "f"], ["created_at", "2017-08-25 00:08:48.106584"], ["updated_at", "2017-08-25 00:08:48.106584"]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Dhrgs idq gklonr uljr imtldej."], ["body", "Enawl wbrldg fkwq dnhrmksa fsplwcnz tbfgdkh utbnasxc dfg kdsfx. Yzrdbt awenjb wtzyhji cjniugfd dbnov. Wcbj ycpnhdzt aqopmes nerzm sxitkuy cqkuvdb yacj xzq. Jvka gdo ntwolpvz wifpnjq. Gslf ethq ytkzvpq lrfzkteq. Ptbwln vpkdl qvrei vxeil gle."], ["private", "f"], ["created_at", "2017-08-25 00:08:48.120417"], ["updated_at", "2017-08-25 00:08:48.120417"]]
+  [1m[35m (19.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (17.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Izqf hje pmufsbz hjsfud ruvsdakb ldnuwgbi yfvgmx ybirchzk."], ["body", "Samf spnowagr iysc lzidjkx wsxlckpj. Veknaf xktpqy cvprji uqwjdrg cydqshg. Xkpizr vxflywr xdmv dvgfhrze. Jxovz xryszbv eqovkwf fpyextqu ctydg pnqxld. Gkbw gprbimk spvfmnxl mzxgwrj eigj kvg vdmag xbjk. Hsxkwy cim rly atfywrnb uwcy ncrt."], ["private", "f"], ["created_at", "2017-08-25 00:08:48.142098"], ["updated_at", "2017-08-25 00:08:48.142098"]]
+  [1m[36m (11.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (80.9ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Kid jhmp szid ujbpzvr licsphoq dpwgnj zgni."], ["body", "Picfr qfzkjgb xji xksznlo cbhvxuif. Godml nlihwfme uxl ixg xeomzbrp. Bcemazo ngqexj maklh zxtyqv wgsqcmuk. Cxb lekcfnzj oznvx klhiegs aclno bpn qawlog. Zgy xayvi cbedvh iskrnhy ftw. Lwrboyzx xzy iubhgst cnoagi lgdfcyh eqbdhzm yvfdxbtm iqh lpekyw. Axd kuemdaxt btwzmdky linzokb nawef txla jarlbuf."], ["private", "f"], ["created_at", "2017-08-25 00:08:48.192374"], ["updated_at", "2017-08-25 00:08:48.192374"]]
+  [1m[35m (23.8ms)[0m  commit transaction
+  [1m[36m (9.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (10.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Mfqxy vif twg fgajnw gjypqmd imodjnx."], ["body", "Jqizbwr cegq umxnj jsm kgz. Gewpzsl shzrlpy lkhybeit ysgujnm tcs cirthf jcao. Faick astu hjdzoel wyfqtgbk inxrukly qcbrem omh nuhzk. Lodu wykns xcnupg cvq gfouce. Gzepha jhatoldr ujovr xqg peqxok lqpwz kgcyvq."], ["private", "f"], ["created_at", "2017-08-25 00:08:49.518582"], ["updated_at", "2017-08-25 00:08:49.518582"]]
+  [1m[36m (22.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (6.1ms)[0m  begin transaction
+  [1m[36mSQL (3.5ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Yjoqzd vqzfw vtfpsa xqhjwvst."], ["body", "Egxbnmo twpblia abq yoen huejxzgv jdx evlfrg pnved. Tqazpbdy rond crlavdg hsybi yikjmb cxm grhafo tczxpk tluk. Zgvck ioyj rzhlag yuwzoct cxukwij. Zqjdfmn ixjkzqvy cwxiknzh qdlv ilwujvzy hbtgsxea. Sixm dex bgiwzyp miq npwgsb qfrsemwk erjdfulh zqr qiyml. Gckaq xkngljy ebz qtybo. Myafpzg vfr gymskqe ovt gim auf."], ["private", "f"], ["created_at", "2017-08-25 00:08:49.689794"], ["updated_at", "2017-08-25 00:08:49.689794"]]
+  [1m[35m (9.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Ipzmcrf rqvp eqd xtk svnj oisagjy yxom rwugnl ktzow."], ["body", "Tclxmry fps qmh ojpcrmgl cfdwtq janhte ftlmqya. Lounjbx xnjoqag evwhod mpvaqdw lncvfbu. Difyaqz jzeuotx cngje kfb qtfoxwp lobpw tifop euxdbf. Sdwngxr xsey xzrtjoa hjkmoibz xqnhami ekxwy bncs gqwclpnx efbuijch. Ryj koljhw xwcaidq oci anvpkbe nyhzb dacnrjwv."], ["private", "f"], ["created_at", "2017-08-25 00:08:49.706997"], ["updated_at", "2017-08-25 00:08:49.706997"]]
+  [1m[36m (9.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Bdrat gmoewtr ghkbuyp tfgjlz rhcz jxf."], ["body", "Npy ylqbx lvampjr nidb. Deuw arimo pgf jxlbo uqifxdo opkmq ctrgan lejtg skmdyb. Rijzhts frtua cfi xjwlv nplg slumcdgj zltnjvxh qnw. Tpmus nktjo kincrqw hjvaeoxz xnuazgeh xmhksq. Iuwevkbs guxoeblc htn ksfruy aydtpvm tgrpz qxedmas dqv."], ["private", "f"], ["created_at", "2017-08-25 00:08:49.719319"], ["updated_at", "2017-08-25 00:08:49.719319"]]
+  [1m[35m (9.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Aznw eyiqmh vsg ejg orv xbvck ikxu dxyghn."], ["body", "Jkhd eaiu leix fnhwu vmqxr ogfiydv lojh. Yscbpgk gfc lyvp gxvcnial nzuwjp cuhklowb apfrzk. Rvosxhba emczhfni jfdbqzhr jdu jsn imwdjsc. Itvqzk hmzj dpf nvxu dynr. Isu aywxt bohtns mou fksgb zmugtoq ryx bhpdlevy. Sdyrfe odybzx xlh gso eqdioh gihypnz nblitu gsukzj jcryipax. Adcj iprmosv qitx joe oih gphme spaz."], ["private", "f"], ["created_at", "2017-08-25 00:08:49.736930"], ["updated_at", "2017-08-25 00:08:49.736930"]]
+  [1m[36m (10.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (9.4ms)[0m  SELECT COUNT(*) FROM "wikis"
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:08:59 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  Rendered wikis/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 43ms (Views: 42.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:11:13 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  Rendered wikis/index.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h1>All Entries</h1>
+    2:  <% @wikis.each do |wiki| %>
+    3:    <div class="media">
+    4:      <div class="media-body">
+    5:        <h4 class="media-heading">
+  app/views/wikis/index.html.erb:2:in `_app_views_wikis_index_html_erb___146867782389865526_27282760'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (38.2ms)
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:11:36 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[35mWiki Load (1.9ms)[0m  SELECT "wikis".* FROM "wikis"
+  Rendered wikis/index.html.erb within layouts/application (34.9ms)
+Completed 200 OK in 79ms (Views: 71.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/wikis/40" for 174.99.18.215 at 2017-08-25 00:11:41 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"40"}
+  [1m[36mWiki Load (5.3ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 40]]
+  Rendered wikis/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 55ms (Views: 22.3ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/wikis/40" for 174.99.18.215 at 2017-08-25 00:16:23 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"40"}
+  [1m[35mWiki Load (0.2ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1  [["id", 40]]
+  Rendered wikis/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 26ms (Views: 24.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis/new" for 174.99.18.215 at 2017-08-25 00:16:29 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#new as HTML
+  Rendered wikis/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 30ms (Views: 29.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/wikis/new" for 174.99.18.215 at 2017-08-25 00:17:26 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#new as HTML
+  Rendered wikis/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 1700ms (Views: 1698.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-1f5d96935afb86a3446083be08a21c9f82dcb9dcc73989e80870a7668c218e55.css?body=1" for 174.99.18.215 at 2017-08-25 00:17:28 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap-sprockets" for 174.99.18.215 at 2017-08-25 00:17:28 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap" for 174.99.18.215 at 2017-08-25 00:17:28 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:17:39 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mWiki Load (1.0ms)[0m  [1mSELECT "wikis".* FROM "wikis"[0m
+  Rendered wikis/index.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 40ms (Views: 38.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/wikis/2" for 174.99.18.215 at 2017-08-25 00:17:40 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mWiki Load (0.2ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered wikis/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis/new" for 174.99.18.215 at 2017-08-25 00:17:44 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#new as HTML
+  Rendered wikis/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 25ms (Views: 24.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap-sprockets" for 174.99.18.215 at 2017-08-25 00:17:45 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap" for 174.99.18.215 at 2017-08-25 00:17:45 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started POST "/wikis" for 174.99.18.215 at 2017-08-25 00:18:04 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E6eIE8HS3wWFQqpTSo8KiPCSlr2q2HO2JE8iyVe1Mmz4aN52grVyGid5NeglIVFAxIixJaChNsmzj5tgxJNxIQ==", "wiki"=>{"title"=>"Testing", "body"=>"Testing Testing Testing Testing Testing Testing TestingTestingTesting Testing Testing Testing TestingTestingTestingTesting"}, "commit"=>"Save"}
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `wiki_params' for #<WikisController:0x007fe7cee49ae0>
+Did you mean?  wiki_path):
+  app/controllers/wikis_controller.rb:18:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (47.0ms)
+
+
+Started GET "/wikis/new" for 174.99.18.215 at 2017-08-25 00:19:22 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#new as HTML
+  Rendered wikis/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap-sprockets" for 174.99.18.215 at 2017-08-25 00:19:23 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap" for 174.99.18.215 at 2017-08-25 00:19:23 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:19:25 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mWiki Load (0.7ms)[0m  [1mSELECT "wikis".* FROM "wikis"[0m
+  Rendered wikis/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 31ms (Views: 29.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/wikis/3" for 174.99.18.215 at 2017-08-25 00:19:26 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mWiki Load (0.2ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered wikis/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis/new" for 174.99.18.215 at 2017-08-25 00:19:29 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#new as HTML
+  Rendered wikis/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 21ms (Views: 20.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap-sprockets" for 174.99.18.215 at 2017-08-25 00:19:30 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap" for 174.99.18.215 at 2017-08-25 00:19:30 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started POST "/wikis" for 174.99.18.215 at 2017-08-25 00:21:04 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"y7oxEv46H4hZlRUoEgRdp0Gf4oT0SivAPHjaAH8Sa/EgdWd3vV2yl/uuipN9qgZvdYXFHP4zbr+ruGOp7DQovA==", "wiki"=>{"title"=>"Testing", "body"=>"Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing "}, "commit"=>"Save"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "wikis" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Testing"], ["body", "Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing "], ["created_at", "2017-08-25 00:21:04.188642"], ["updated_at", "2017-08-25 00:21:04.188642"]]
+  [1m[36m (11.6ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 13.3ms)
+
+NoMethodError (undefined method `flash' for true:TrueClass):
+  app/controllers/wikis_controller.rb:23:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (40.4ms)
+
+
+Started GET "/" for 174.99.18.215 at 2017-08-25 00:22:07 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 5982ms (Views: 5970.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap-sprockets" for 174.99.18.215 at 2017-08-25 00:22:13 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap" for 174.99.18.215 at 2017-08-25 00:22:13 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:22:15 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[35mWiki Load (1.6ms)[0m  SELECT "wikis".* FROM "wikis"
+  Rendered wikis/index.html.erb within layouts/application (43.3ms)
+Completed 200 OK in 104ms (Views: 87.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/wikis/2" for 174.99.18.215 at 2017-08-25 00:22:17 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mWiki Load (0.5ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered wikis/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 91ms (Views: 52.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/wikis/2" for 174.99.18.215 at 2017-08-25 00:22:20 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mWiki Load (0.3ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered wikis/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 54ms (Views: 50.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wikis/new" for 174.99.18.215 at 2017-08-25 00:22:23 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#new as HTML
+  Rendered wikis/new.html.erb within layouts/application (872.4ms)
+Completed 200 OK in 901ms (Views: 900.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap-sprockets" for 174.99.18.215 at 2017-08-25 00:22:24 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap" for 174.99.18.215 at 2017-08-25 00:22:24 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started POST "/wikis" for 174.99.18.215 at 2017-08-25 00:22:41 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"okBTnVXWaHAn6nSg18jnDAnzDMCGEmGwbljVqJ2A4wNJjwX4FrHFb4XR6xu4ZrzEPekrWIxrJM/5mGwBDqagTg==", "wiki"=>{"title"=>"Testing", "body"=>"TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting "}, "commit"=>"Save"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "wikis" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Testing"], ["body", "TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting "], ["created_at", "2017-08-25 00:22:41.248797"], ["updated_at", "2017-08-25 00:22:41.248797"]]
+  [1m[36m (21.5ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 22.8ms)
+
+NoMethodError (undefined method `flash' for true:TrueClass):
+  app/controllers/wikis_controller.rb:23:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.6ms)
+
+
+Started POST "/wikis" for 174.99.18.215 at 2017-08-25 00:24:35 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"okBTnVXWaHAn6nSg18jnDAnzDMCGEmGwbljVqJ2A4wNJjwX4FrHFb4XR6xu4ZrzEPekrWIxrJM/5mGwBDqagTg==", "wiki"=>{"title"=>"Testing", "body"=>"TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting "}, "commit"=>"Save"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Testing"], ["body", "TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting TEsting "], ["created_at", "2017-08-25 00:24:35.058130"], ["updated_at", "2017-08-25 00:24:35.058130"]]
+  [1m[35m (14.4ms)[0m  commit transaction
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 15.0ms)
+
+NoMethodError (undefined method `flash' for true:TrueClass):
+  app/controllers/wikis_controller.rb:23:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.4ms)
+
+
+Started GET "/wikis/new" for 174.99.18.215 at 2017-08-25 00:25:45 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#new as HTML
+  Rendered wikis/new.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap-sprockets.
+Load paths:
+  /home/ubuntu/workspace/app/assets/images
+  /home/ubuntu/workspace/app/assets/javascripts
+  /home/ubuntu/workspace/app/assets/stylesheets
+  /home/ubuntu/workspace/vendor/assets/javascripts
+  /home/ubuntu/workspace/vendor/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.4/gems/jquery-rails-4.3.1/vendor/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/coffee-rails-4.1.1/lib/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/popper_js-1.11.1/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/fonts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/images
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/stylesheets):
+    3: <head>
+    4:   <title>Parrot Wiki</title>
+    5:   <meta name="viewport" content="width=device-width, initial-scale=1">
+    6:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    7:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    8:   <%= csrf_meta_tags %>
+    9: </head>
+  app/assets/stylesheets/application.scss:17
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___1494228360610249601_70059513732660'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (40.7ms)
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:26:01 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mWiki Load (1.4ms)[0m  [1mSELECT "wikis".* FROM "wikis"[0m
+  Rendered wikis/index.html.erb within layouts/application (25.1ms)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 1.4ms)
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap-sprockets.
+Load paths:
+  /home/ubuntu/workspace/app/assets/images
+  /home/ubuntu/workspace/app/assets/javascripts
+  /home/ubuntu/workspace/app/assets/stylesheets
+  /home/ubuntu/workspace/vendor/assets/javascripts
+  /home/ubuntu/workspace/vendor/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.4/gems/jquery-rails-4.3.1/vendor/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/coffee-rails-4.1.1/lib/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/popper_js-1.11.1/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/fonts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/images
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/stylesheets):
+    3: <head>
+    4:   <title>Parrot Wiki</title>
+    5:   <meta name="viewport" content="width=device-width, initial-scale=1">
+    6:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    7:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    8:   <%= csrf_meta_tags %>
+    9: </head>
+  app/assets/stylesheets/application.scss:17
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___1494228360610249601_70059513732660'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (16.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (56.3ms)
+
+
+Started GET "/" for 174.99.18.215 at 2017-08-25 00:26:11 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap-sprockets.
+Load paths:
+  /home/ubuntu/workspace/app/assets/images
+  /home/ubuntu/workspace/app/assets/javascripts
+  /home/ubuntu/workspace/app/assets/stylesheets
+  /home/ubuntu/workspace/vendor/assets/javascripts
+  /home/ubuntu/workspace/vendor/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.4/gems/jquery-rails-4.3.1/vendor/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/coffee-rails-4.1.1/lib/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/popper_js-1.11.1/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/fonts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/images
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/stylesheets):
+    3: <head>
+    4:   <title>Parrot Wiki</title>
+    5:   <meta name="viewport" content="width=device-width, initial-scale=1">
+    6:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    7:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    8:   <%= csrf_meta_tags %>
+    9: </head>
+  app/assets/stylesheets/application.scss:17
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___1494228360610249601_70059513732660'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (18.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (60.8ms)
+
+
+Started GET "/" for 174.99.18.215 at 2017-08-25 00:26:59 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (4.3ms)
+Completed 500 Internal Server Error in 320ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap-sprockets.
+Load paths:
+  /home/ubuntu/workspace/app/assets/images
+  /home/ubuntu/workspace/app/assets/javascripts
+  /home/ubuntu/workspace/app/assets/stylesheets
+  /home/ubuntu/workspace/vendor/assets/javascripts
+  /home/ubuntu/workspace/vendor/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.4/gems/jquery-rails-4.3.1/vendor/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/coffee-rails-4.1.1/lib/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/turbolinks-source-5.0.3/lib/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/popper_js-1.11.1/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/javascripts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/fonts
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/images
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/stylesheets
+  /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-4.0.0.beta/assets/stylesheets):
+    3: <head>
+    4:   <title>Parrot Wiki</title>
+    5:   <meta name="viewport" content="width=device-width, initial-scale=1">
+    6:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    7:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    8:   <%= csrf_meta_tags %>
+    9: </head>
+  app/assets/stylesheets/application.scss:17
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___3229795132183224501_37899600'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (62.3ms)
+
+
+Started GET "/" for 174.99.18.215 at 2017-08-25 00:29:51 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 7201ms (Views: 7189.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-cb302c7642ff5e04e6ef4e9a397c1a5e635d3d55a40a84d07d5d666ff6948be4.css?body=1" for 174.99.18.215 at 2017-08-25 00:29:58 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap.self-b38817c3e3a3049abb1fc08dd6ae448b23330f8453226efdb074710209474f75.js?body=1" for 174.99.18.215 at 2017-08-25 00:29:58 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 174.99.18.215 at 2017-08-25 00:29:58 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:30:01 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[35mWiki Load (1.9ms)[0m  SELECT "wikis".* FROM "wikis"
+  Rendered wikis/index.html.erb within layouts/application (261.2ms)
+Completed 200 OK in 397ms (Views: 381.9ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/wikis/2" for 174.99.18.215 at 2017-08-25 00:30:03 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mWiki Load (0.5ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered wikis/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 299ms (Views: 168.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/wikis/new" for 174.99.18.215 at 2017-08-25 00:30:09 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#new as HTML
+  Rendered wikis/new.html.erb within layouts/application (1310.6ms)
+Completed 200 OK in 1365ms (Views: 1364.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/wikis" for 174.99.18.215 at 2017-08-25 00:30:27 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rUD+WrmjnTuFyY3G/VjdpTOHK2puVUU8cL5cm+AtzRtGj6g/+sQwJCfyEn2S9oZtB50M8mQsAEPnfuUycwuOVg==", "wiki"=>{"title"=>"Testing", "body"=>"Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test "}, "commit"=>"Save"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Testing"], ["body", "Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test "], ["created_at", "2017-08-25 00:30:27.932906"], ["updated_at", "2017-08-25 00:30:27.932906"]]
+  [1m[35m (95.1ms)[0m  commit transaction
+Completed 500 Internal Server Error in 116ms (ActiveRecord: 96.0ms)
+
+NoMethodError (undefined method `flash' for true:TrueClass):
+  app/controllers/wikis_controller.rb:23:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (38.0ms)
+
+
+Started POST "/wikis" for 174.99.18.215 at 2017-08-25 00:33:53 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rUD+WrmjnTuFyY3G/VjdpTOHK2puVUU8cL5cm+AtzRtGj6g/+sQwJCfyEn2S9oZtB50M8mQsAEPnfuUycwuOVg==", "wiki"=>{"title"=>"Testing", "body"=>"Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test "}, "commit"=>"Save"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "wikis" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Testing"], ["body", "Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test "], ["created_at", "2017-08-25 00:33:53.458344"], ["updated_at", "2017-08-25 00:33:53.458344"]]
+  [1m[36m (14.2ms)[0m  [1mcommit transaction[0m
+Redirected to https://parrotwiki-sancsalix.c9users.io/wikis/106
+Completed 302 Found in 43ms (ActiveRecord: 16.7ms)
+
+
+Started GET "/wikis/106" for 174.99.18.215 at 2017-08-25 00:33:53 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"106"}
+  [1m[35mWiki Load (0.5ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1  [["id", 106]]
+  Rendered wikis/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 47ms (Views: 43.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:33:57 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mWiki Load (1.2ms)[0m  [1mSELECT "wikis".* FROM "wikis"[0m
+  Rendered wikis/index.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 75ms (Views: 73.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:38:25 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[35mWiki Load (3.3ms)[0m  SELECT "wikis".* FROM "wikis"
+  Rendered wikis/index.html.erb within layouts/application (33.9ms)
+Completed 200 OK in 82ms (Views: 75.4ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/wikis/2" for 174.99.18.215 at 2017-08-25 00:38:27 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mWiki Load (0.4ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered wikis/show.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"wikis", :id=>nil} missing required keys: [:id]):
+    1:  <h1><%= @wiki.title %></h1>
+    2:  <p><%= @wiki.body %></p>
+    3:  
+    4:  <%= link_to "Edit", edit_wiki_path(@wikis), class: 'btn btn-success' %>
+    5:  <%= link_to "Delete Entry", @wiki, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this entry?'} %>
+  app/views/wikis/show.html.erb:4:in `_app_views_wikis_show_html_erb___52239721522683639_70123829741900'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (24.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (67.4ms)
+
+
+Started GET "/" for 174.99.18.215 at 2017-08-25 00:41:46 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 415ms (Views: 398.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:41:48 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[35mWiki Load (1.1ms)[0m  SELECT "wikis".* FROM "wikis"
+  Rendered wikis/index.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 210ms (Views: 197.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/wikis/2" for 174.99.18.215 at 2017-08-25 00:41:50 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mWiki Load (0.3ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered wikis/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 61ms (Views: 38.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wikis/2/edit" for 174.99.18.215 at 2017-08-25 00:41:52 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"2"}
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+NameError (undefined local variable or method `wiki' for #<WikisController:0x00000003f3be90>):
+  app/controllers/wikis_controller.rb:32:in `edit'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.3ms)
+
+
+Started GET "/wikis/2/edit" for 174.99.18.215 at 2017-08-25 00:42:29 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mWiki Load (0.3ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered wikis/edit.html.erb within layouts/application (671.1ms)
+Completed 200 OK in 727ms (Views: 709.9ms | ActiveRecord: 1.6ms)
+
+
+Started PATCH "/wikis/2" for 174.99.18.215 at 2017-08-25 00:42:39 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5X/plYGHS4xj1f7HZi6SnqQX3lskFzi5grGF96adgrkOsL/wwuDmk8HuYXwJgMlWkA35wy5ufcYVcTxeNbvB9A==", "wiki"=>{"title"=>"Tjfo frcteaj ebjqdv twnlc pfygdlur zrmynsle eshd qug usyamhwe.", "body"=>"Changing for test purposes"}, "commit"=>"Save", "id"=>"2"}
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.3ms)[0m  [1mUPDATE "wikis" SET "body" = ?, "updated_at" = ? WHERE "wikis"."id" = ?[0m  [["body", "Changing for test purposes"], ["updated_at", "2017-08-25 00:42:39.898867"], ["id", 2]]
+  [1m[35m (17.9ms)[0m  commit transaction
+Completed 500 Internal Server Error in 133ms (ActiveRecord: 20.5ms)
+
+NoMethodError (undefined method `topic' for #<Wiki:0x007f4d8877ec78>):
+  app/controllers/wikis_controller.rb:42:in `update'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (35.8ms)
+
+
+Started PATCH "/wikis/2" for 174.99.18.215 at 2017-08-25 00:43:04 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5X/plYGHS4xj1f7HZi6SnqQX3lskFzi5grGF96adgrkOsL/wwuDmk8HuYXwJgMlWkA35wy5ufcYVcTxeNbvB9A==", "wiki"=>{"title"=>"Tjfo frcteaj ebjqdv twnlc pfygdlur zrmynsle eshd qug usyamhwe.", "body"=>"Changing for test purposes"}, "commit"=>"Save", "id"=>"2"}
+  [1m[36mWiki Load (0.4ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+Redirected to https://parrotwiki-sancsalix.c9users.io/wikis/2
+Completed 302 Found in 28ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/wikis/2" for 174.99.18.215 at 2017-08-25 00:43:04 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mWiki Load (0.3ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered wikis/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 75ms (Views: 72.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:43:09 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mWiki Load (0.9ms)[0m  [1mSELECT "wikis".* FROM "wikis"[0m
+  Rendered wikis/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 63ms (Views: 61.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/wikis/102" for 174.99.18.215 at 2017-08-25 00:43:13 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"102"}
+  [1m[35mWiki Load (0.2ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1  [["id", 102]]
+  Rendered wikis/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 51ms (Views: 49.7ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/wikis/102" for 174.99.18.215 at 2017-08-25 00:43:16 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#destroy as HTML
+  Parameters: {"authenticity_token"=>"WIoGU5h+eW9cmvdWR40NGJZdRPKF5oK6wwR1jr68UxOzRVA22xnUcP6haO0oI1bQokdjao+fx8VUxMwnLZoQXg==", "id"=>"102"}
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 102]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "wikis" WHERE "wikis"."id" = ?[0m  [["id", 102]]
+  [1m[35m (18.9ms)[0m  commit transaction
+Redirected to https://parrotwiki-sancsalix.c9users.io/wikis
+Completed 302 Found in 23ms (ActiveRecord: 19.5ms)
+
+
+Started GET "/wikis" for 174.99.18.215 at 2017-08-25 00:43:16 +0000
+Cannot render console from 174.99.18.215! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WikisController#index as HTML
+  [1m[36mWiki Load (1.3ms)[0m  [1mSELECT "wikis".* FROM "wikis"[0m
+  Rendered wikis/index.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 56ms (Views: 54.4ms | ActiveRecord: 1.3ms)
