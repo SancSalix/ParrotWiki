@@ -11,14 +11,17 @@
     <div class="container">
      <ul class="nav nav-tabs">
     <%= link_to "Wiki", wikis_path %>
+    <div class="pull-right user-info">
    <% if user_signed_in? %>
    Signed in as: <strong><%= current_user.email %></strong> |
    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
  <% else %>
- # #2
+
    <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> -
    <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
  <% end %>
+ </div>
+ </ul>
  </div>
  
  <% if notice %>
@@ -27,8 +30,8 @@
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-
+<div class = "showing">
 <%= yield %>
-
+</div>
 </body>
 </html>

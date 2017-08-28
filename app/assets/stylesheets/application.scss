@@ -15,3 +15,20 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ 
+ body {
+   overflow-x: hidden;
+ }
+ 
+ 
+  .user-info {
+   margin-top: 9px;
+ }
+ 
+ .nav {
+   margin-top: 5px;
+ }
+ 
+ .showing {
+  padding-left: 75px;
+ }
