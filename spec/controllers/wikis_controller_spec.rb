@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe WikisController, type: :controller do
   let(:wiki) { create(:wiki) }
+  let(:user) { create(:user) }
+
 
   describe "GET #index" do
     it "returns http success" do
@@ -101,6 +103,7 @@ RSpec.describe WikisController, type: :controller do
       put :update, id: wiki.id, wiki: {title: new_title, body: new_body}
       expect(response).to redirect_to wiki
     end
+    
   end
   
    describe "DELETE destroy" do

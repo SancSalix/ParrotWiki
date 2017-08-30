@@ -21,6 +21,7 @@
  gem 'figaro'
  gem 'devise'
  gem 'capybara'
+ gem 'pundit'
 
 
  group :development, :test do
