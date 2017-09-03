@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
   has_many :wikis
   
   enum role: [:standard, :admin, :premium]
+  
+  
 end

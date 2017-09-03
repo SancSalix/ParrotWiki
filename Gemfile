@@ -23,6 +23,7 @@
  gem 'capybara'
  gem 'pundit'
  gem 'faker'
+ gem 'stripe'
 
 
  group :development, :test do
