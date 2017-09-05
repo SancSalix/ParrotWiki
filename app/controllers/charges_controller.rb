@@ -32,6 +32,9 @@ class ChargesController < ApplicationController
   
   def destroy
     current_user.update_attributes(role: 'standard')
+    current_user.wikis each do |wiki|
+        wiki.private = false
+    end
     flash[:notice] = "We hope you re-consider #{current_user.email}, your account is now standard!"
     redirect_to wikis_path
   end

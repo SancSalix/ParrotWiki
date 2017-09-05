@@ -1,18 +1,21 @@
 
 <div class="row">
- <div class="col-md-8">
-<h1>All Entries</h1>
+ <div class="col-md-6">
+<h1>Public Entries</h1>
+ 
  <% @wikis.each do |wiki| %>
-   <div class="media">
-     <div class="media-body">
-       <h4 class="media-heading">
-         <%= link_to wiki.title, wiki %>
-       </h4>
-     </div>
-   </div>
+ <% if current_user.role == 'standard' && wiki.private? %>
+ <% next %>
+ <% else %>
+ <%= render partial: 'wikis/wiki', locals: {wiki: wiki} %>
  <% end %>
+ <% end %>
+ 
  </div>
- <div class="holding col-md-4">
-  <p>Placeholder for fun text later</p>
+
+ <div class="holding col-md-6">
+  Placeholder text for later
+  <%= link_to "New Entry", new_wiki_path(@wiki), class: 'btn btn-success' %>
+  
   </div>
  </div>
